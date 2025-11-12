@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>นายพีรพัฒน์ ธงศรี | Portfolio นักศึกษา</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ************************************************** */
+        /* CSS: Design Modern, Minimalist และ Professional ใหม่ */
+        /* ************************************************** */
+        
+        /* ------------------ Base & Typography ------------------ */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background-color: #f7fafc; 
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+
+        /* ------------------ Header (Navigation Bar) ------------------ */
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #edf2f7;
+            padding: 1rem 25px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .โลโก้ {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #1a202c;
+            letter-spacing: -0.5px;
+        }
+        header .โลโก้ span {
+            color: #00a884;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li a {
+            color: #4a5568;
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            transition: all 0.3s ease-in-out;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: #00a884;
+            background-color: #e6fffa;
+            font-weight: 600;
+        }
+
+        /* ------------------ Main Layout (Grid) ------------------ */
+        main {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 50px;
+            padding: 50px 0;
+        }
+        
+        .content-main {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .sidebar {
+            background-color: #f0fff4; 
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+            position: sticky;
+            top: 100px; 
+            align-self: flex-start;
+            height: fit-content;
+        }
+
+        /* ------------------ Section & Headings ------------------ */
+        section {
+            padding: 30px 0;
+        }
+
+        section:not(:last-child) {
+            border-bottom: 1px solid #edf2f7;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #1a202c;
+            border-left: 5px solid #00a884;
+            padding-left: 15px;
+            margin-bottom: 35px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            color: #2d3748;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        /* ------------------ Hero Section (หน้าหลัก) ------------------ */
+        #หน้าหลัก {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            padding-top: 0;
+        }
+
+        .โปรไฟล์-ภาพ {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid #00a884;
+            box-shadow: 0 0 0 4px #e6fffa;
+            flex-shrink: 0;
+        }
+
+        #หน้าหลัก h1 {
+            font-size: 3.5rem;
+            margin-bottom: 8px;
+            color: #1a202c;
+            letter-spacing: -1px;
+        }
+        
+        #หน้าหลัก .status-info p {
+            font-size: 1.2rem;
+            color: #4a5568;
+            margin-bottom: 8px;
+            font-weight: 400;
+        }
+
+        /* ------------------ About Section ------------------ */
+        .ส่วนเกี่ยวกับฉัน ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 15px;
+        }
+        
+        .ส่วนเกี่ยวกับฉัน ul li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 10px;
+            color: #4a5568;
+            font-size: 1.05rem;
+        }
+        
+        .ส่วนเกี่ยวกับฉัน ul li::before {
+            content: '✅';
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+            color: #00a884;
+        }
+
+        /* ------------------ Skills Section (Tags/Chips) ------------------ */
+        .ส่วนทักษะ ul {
+            list-style: none;
+            padding-left: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .ส่วนทักษะ ul li {
+            background-color: #e6fffa;
+            color: #008060;
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background-color 0.3s, transform 0.2s;
+            position: relative;
+            padding-left: 18px;
+        }
+        .ส่วนทักษะ ul li:hover {
+            background-color: #b2f5ea;
+            transform: translateY(-2px);
+        }
+
+        /* Progress Bar (ปรับสีและขนาด) */
+        .progress-bar-container {
+            margin-top: 30px;
+        }
+        .progress-item {
+            margin-bottom: 20px;
+        }
+        .progress-label {
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            color: #2d3748;
+        }
+        .progress-bar {
+            background-color: #edf2f7;
+            border-radius: 5px;
+            overflow: hidden;
+            height: 12px;
+        }
+        .progress {
+            background-color: #00a884;
+            height: 12px;
+            border-radius: 5px;
+            transition: width 0.8s ease-out;
+        }
+
+        /* ------------------ Education & Achievements ------------------ */
+        .ส่วนการศึกษา p, .ส่วนกิจกรรมและความสำเร็จ p {
+            margin-bottom: 8px;
+        }
+
+        .ส่วนกิจกรรมและความสำเร็จ ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 20px;
+        }
+        
+        .ส่วนกิจกรรมและความสำเร็จ ul li {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 25px;
+            line-height: 1.5;
+            color: #2d3748;
+            font-size: 1.05rem;
+        }
+        
+        .ส่วนกิจกรรมและความสำเร็จ ul li::before {
+            position: absolute;
+            left: 0;
+            font-size: 1.8em;
+            line-height: 1;
+            color: #00a884;
+            top: -2px;
+        }
+        /* กำหนดไอคอนเฉพาะสำหรับแต่ละรายการ */
+        .ส่วนกิจกรรมและความสำเร็จ ul li:nth-child(1)::before { content: '🎶'; }
+        .ส่วนกิจกรรมและความสำเร็จ ul li:nth-child(2)::before { content: '🤖'; }
+
+        .ส่วนกิจกรรมและความสำเร็จ img {
+            max-width: 90%;
+            height: auto;
+            border-radius: 8px;
+            margin: 15px 0 10px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+        }
+
+        /* ------------------ Contact Section (Sidebar) ------------------ */
+        #ติดต่อ {
+            padding: 0;
+        }
+        
+        #ติดต่อ h2 {
+            border-left: none;
+            padding-left: 0;
+            margin-bottom: 25px;
+            font-size: 1.6rem;
+            color: #1a202c;
+            text-align: center;
+        }
+
+        #ติดต่อ address {
+            font-style: normal;
+        }
+        
+        #ติดต่อ address p {
+            margin-bottom: 18px;
+            display: flex;
+            align-items: flex-start;
+            line-height: 1.5;
+            color: #2d3748;
+        }
+        
+        #ติดต่อ address p::before {
+            margin-right: 15px;
+            font-size: 1.5rem;
+            color: #00a884;
+            flex-shrink: 0;
+            line-height: 1;
+            padding-top: 2px;
+        }
+        
+        #ติดต่อ address p:nth-child(1)::before { content: '📧'; }
+        #ติดต่อ address p:nth-child(2)::before { content: '👥'; }
+        #ติดต่อ address p:nth-child(3)::before { content: '🏠'; }
+        #ติดต่อ address p:nth-child(4)::before { content: '📞'; }
+        
+        #ติดต่อ address p a {
+            color: #00a884;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        #ติดต่อ address p a:hover {
+            text-decoration: underline;
+            color: #007a60;
+        }
+        
+        /* ------------------ Footer ------------------ */
+        footer {
+            text-align: center;
+            padding: 1.8rem 0;
+            background: #1a202c;
+            color: #e2e8f0;
+            font-size: 0.95rem;
+        }
+
+        /* ------------------ Responsive Design ------------------ */
+        @media (max-width: 992px) {
+            main {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 30px 0;
+            }
+            
+            .sidebar {
+                position: static;
+                width: auto;
+                order: -1;
+            }
+
+            #หน้าหลัก {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            #หน้าหลัก h1 {
+                font-size: 2.8rem;
+            }
+            .โปรไฟล์-ภาพ {
+                width: 150px;
+                height: 150px;
+            }
+            h2 {
+                font-size: 1.7rem;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1rem 15px;
+            }
+            header .โลโก้ {
+                margin-bottom: 10px;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-top: 10px;
+            }
+            nav ul li {
+                margin: 5px;
+            }
+            .container {
+                padding: 0 15px;
+            }
+            .content-main, .sidebar {
+                padding: 25px;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            #หน้าหลัก h1 {
+                font-size: 2.2rem;
+            }
+            .ส่วนกิจกรรมและความสำเร็จ ul li::before {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="โลโก้">นายพีรพัฒน์ <span>ธงศรี</span> | Portfolio</div>
+        <nav>
+            <ul>
+                <li><a href="#หน้าหลัก" class="active">หน้าหลัก</a></li>
+                <li><a href="#เกี่ยวกับฉัน">เกี่ยวกับฉัน</a></li>
+                <li><a href="#ทักษะ">ทักษะ</a></li>
+                <li><a href="#การศึกษา">การศึกษา</a></li>
+                <li><a href="#กิจกรรมและความสำเร็จ">กิจกรรมและความสำเร็จ</a></li>
+                <li><a href="#เป้าหมาย">เป้าหมาย</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main>
+            <div class="content-main">
+            
+                <section id="หน้าหลัก">
+                    <img src="รูปใบหน้า.png" alt="รูปโปรไฟล์ นายพีรพัฒน์ ธงศรี" class="โปรไฟล์-ภาพ">
+                    <div class="คำทักทาย">
+                        <h1>นายพีรพัฒน์ ธงศรี</h1>
+                        <div class="status-info">
+                            <p>สถานะ: นักศึกษาชั้นปีที่ 3</p>
+                            <p>คณะ: วิทยาศาสตร์ สาขาเทคโนโลยีสารสนเทศ</p>
+                            <p>ความสนใจพิเศษ: **AI, Web Development, IT Support, Data Science**</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <section id="เกี่ยวกับฉัน" class="ส่วนเกี่ยวกับฉัน">
+                    <h2>เกี่ยวกับฉัน</h2>
+                    <p>สวัสดีครับผมชื่อนายพีรพัฒน์ ธงศรี ชื่อเล่นคิว ปัจจุบันกำลังศึกษาอยู่ที่มหาวิทยาลัยราชภัฏอุดรธานี 
+                    ผมมีความสนใจในด้านเทคโนโลยีสารสนเทศตั้งแต่อดีตถึงปัจจุบัน พร้อมที่จะทำงานเกี่ยวกับสายงาน **IT**
+                    และมีความมุ่งมั่นที่จะฝึกฝนพัฒนาทักษะและความรู้ใหม่ๆ อยู่เสมอ โดยเฉพาะอย่างยิ่งในสายงาน **Software Tester, IT Support**</p>
+                    
+                    <h3>ทักษะด้าน Soft Skills</h3>
+                    <ul>
+                        <li>การสื่อสารและการนำเสนอ (Communication & Presentation)</li>
+                        <li>การทำงานเป็นทีมและปรับตัวได้ดี (Teamwork & Adaptability)</li>
+                        <li>การแก้ปัญหาเฉพาะหน้า (Problem Solving)</li>
+                        <li>ความกระตือรือร้นในการเรียนรู้ (Eagerness to Learn)</li>
+                    </ul>
+                </section>
+
+                <section id="ทักษะ" class="ส่วนทักษะ">
+                    <h2>ทักษะทางเทคนิค (Tech Skills)</h2>
+                    
+                    <h3>Programming / Web Development</h3>
+                    <ul>
+                        <li>Python (พื้นฐาน)</li>
+                        <li>Java (พื้นฐาน)</li>
+                        <li>HTML / CSS (พื้นฐาน)</li>
+                        <li>C Language (พื้นฐาน)</li>
+                        <li>PHP (พื้นฐาน)</li>
+                        <li>SQL (พื้นฐาน)</li>
+                    </ul>
+                    
+                    <h3>Tools & Platforms</h3>
+                    <ul>
+                        <li>GitHub / Git</li>
+                        <li>VS Code</li>
+                        <li>CiscoPacket</li>
+                        <li>Figma (Basic UI/UX)</li>
+                        <li>Microsoft Office</li>
+                    </ul>
+
+                    <h3>ระดับความถนัด</h3>
+                    <div class="progress-bar-container">
+                        <div class="progress-item">
+                            <span class="progress-label">Web Development (HTML/CSS/PHP) <span style="font-family: 'Roboto Mono', monospace;">45%</span></span>
+                            <div class="progress-bar"><div class="progress" style="width: 35%;"></div></div>
+                        </div>
+                        <div class="progress-item">
+                            <span class="progress-label">Programming (Python / Java) <span style="font-family: 'Roboto Mono', monospace;">40%</span></span>
+                            <div class="progress-bar"><div class="progress" style="width: 30%;"></div></div>
+                        </div>
+                        <div class="progress-item">
+                            <span class="progress-label">Cybersecurity (พื้นฐาน) <span style="font-family: 'Roboto Mono', monospace;">35%</span></span>
+                            <div class="progress-bar"><div class="progress" style="width: 35%;"></div></div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="การศึกษา" class="ส่วนการศึกษา">
+                    <h2>การศึกษา (Education)</h2>
+                    
+                    <h3>มหาวิทยาลัยราชภัฏอุดรธานี (UDRU)</h3>
+                    <p>ปี 2566 – ปัจจุบัน</p>
+                    <p>วุฒิการศึกษา: ปริญญาตรี (กำลังศึกษาชั้นปีที่ 3)</p>
+                    <p>สาขา: เทคโนโลยีสารสนเทศ (Information Technology)</p>
+
+                    <p><em>*จบการศึกษาระดับประถมถึงระดับมัธยมปลายที่โรงเรียนบ้านบึงโน</em></p>
+                </section>
+
+                <section id="กิจกรรมและความสำเร็จ" class="ส่วนกิจกรรมและความสำเร็จ">
+                    <h2>กิจกรรมและความสำเร็จ</h2>
+                    <ul>
+                        <li>กิจกรรม:อบรมการทักษะดนตรีที่โรงเรียนสว่างแดนดิน <br> (แสดงถึงความสนใจและความสามารถด้านดนตรี) 
+                        <img src="486575817_1872969406827286_9218039917064873549_n (1).jpg" alt="อบรมดนตรี"></li>
+                        
+                        <li>**กิจกรรม:อบรมการใช้ AI ให้น้องๆ ที่โรงเรียนขมิ้นบ่อโคลน <br> (แสดงถึงทักษะการถ่ายทอดความรู้และความสนใจในเทคโนโลยีใหม่ๆ) 
+                        <img src="S__25354242.jpg" alt="อบรมการใช้ai"></li>
+                    </ul>
+                </section>
+                
+                <section id="เป้าหมาย" class="ส่วนเสริม">
+                    <h2>เป้าหมายในอาชีพ</h2>
+                    <p>เป้าหมายหลัก คือการพัฒนาความเชี่ยวชาญด้านการแก้ปัญหาและการบริหารจัดการบริการ IT เพื่อก้าวหน้าในสายงาน:
+
+                    ระยะสั้น: เน้นการเป็นผู้เชี่ยวชาญในการแก้ปัญหา (Troubleshooting Expert) การลดเวลาแก้ปัญหา (MTTR) และได้รับใบรับรองพื้นฐาน (เช่น CompTIA A+, ITIL Foundation)
+
+                    ระยะกลาง: มุ่งสู่ระดับ Senior/Tier 2 Support หรือ Team Lead โดยพัฒนาความเชี่ยวชาญเฉพาะทางด้าน Cloud หรือ Cybersecurity
+
+                    ระยะยาว: ก้าวสู่บทบาทบริหารจัดการ (IT Manager/Director) หรือเป็นผู้เชี่ยวชาญทางเทคนิคระดับสูง (Technical Expert/Consultant) ที่เน้นการปรับปรุงประสบการณ์ผู้ใช้ (Customer Experience)</p>
+                </section>
+                
+            </div>
+            
+            <div class="sidebar">
+                <section id="ติดต่อ" class="ส่วนติดต่อ">
+                    <h2>ข้อมูลติดต่อ</h2>
+                    <address>
+                        <p><strong>Email:</strong> <a href="mailto:66040233120@udru.ac.th">66040233120@udru.ac.th</a></p>
+                        <p><strong>Facebook:</strong> <a href="https://www.facebook.com/share/17wnR3SpJw/?mibextid=wwXIfr" target="_blank">facebook.com/Peerapat</a></p>
+                        <p><strong>ที่อยู่:</strong> อ.สว่างแดนดิน จ.สกลนคร 47110 ปัจจุบันพักที่หอพักชาย มหาวิทยาลัยราชภัฏอุดรธานี ศูนย์สามพร้าว</p>
+                        <p><strong>โทรศัพท์:</strong> 098-713-0093</p>
+                    </address>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 นายพีรพัฒน์ ธงศรี. สงวนลิขสิทธิ์</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav ul li a');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= sectionTop - 100) { // ปรับค่า 100 ตามความเหมาะสม
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
